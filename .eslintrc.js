@@ -36,6 +36,7 @@ module.exports = {
             },
         ],
         'no-use-before-define': [0],
+        '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-use-before-define': [1],
         semi: 'off',
         '@typescript-eslint/semi': 'error',
