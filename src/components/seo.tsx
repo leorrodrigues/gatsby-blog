@@ -7,9 +7,10 @@ interface SEOProps {
     lang?: string;
     meta?: [];
     title: string;
+    image?: { [key: string]: any };
 }
 
-function SEO({ description, lang, meta, title }: SEOProps): JSX.Element {
+function SEO({ description, lang, meta, title, image }: SEOProps): JSX.Element {
     const { site } = useStaticQuery(
         graphql`
             query {
@@ -18,6 +19,7 @@ function SEO({ description, lang, meta, title }: SEOProps): JSX.Element {
                         title
                         description
                         author
+                        siteUrl
                     }
                 }
             }
@@ -25,6 +27,11 @@ function SEO({ description, lang, meta, title }: SEOProps): JSX.Element {
     );
 
     const metaDescription = description || site.siteMetadata.description;
+
+    const { siteUrl } = site.siteMetadata;
+    const ogImage = `${siteUrl}/assets/img/${
+        (image && image.relativePath) || 'cover.png'
+    }`;
 
     return (
         <Helmet
@@ -47,12 +54,20 @@ function SEO({ description, lang, meta, title }: SEOProps): JSX.Element {
                     content: metaDescription,
                 },
                 {
+                    property: `ogImage`,
+                    content: ogImage,
+                },
+                {
                     property: `og:type`,
                     content: `website`,
                 },
                 {
                     name: `twitter:card`,
-                    content: `summary`,
+                    content: `summary_large_image`,
+                },
+                {
+                    property: `twitter:image:src`,
+                    content: ogImage,
                 },
                 {
                     name: `twitter:creator`,

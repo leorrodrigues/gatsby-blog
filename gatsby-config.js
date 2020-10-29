@@ -8,8 +8,11 @@ module.exports = {
         position: `Backend Developer`,
         description: `A blog about frontend development and other cool stuff`,
         author: `@myblog`,
+        siteUrl: `https://johndoe.com.br`,
     },
     plugins: [
+        `gatsby-plugin-transition-link`,
+        `gatsby-plugin-sitemap`,
         `gatsby-plugin-styled-components`,
         `gatsby-plugin-react-helmet`,
         {
@@ -17,13 +20,6 @@ module.exports = {
             options: {
                 name: `uploads`,
                 path: `${__dirname}/static/assets/img`,
-            },
-        },
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
             },
         },
         {
@@ -44,6 +40,17 @@ module.exports = {
                 queries,
                 chunkSize: 10000, // default: 1000
                 enablePartialUpdates: true,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `John Doe`,
+                short_name: `John Doe`,
+                start_url: `/`,
+                background_color: `#16202c`,
+                display: `minimal-ui`,
+                icon: `static/assets/img/favicon.png`,
             },
         },
         `gatsby-plugin-typescript`,
@@ -80,5 +87,6 @@ module.exports = {
                 ],
             },
         },
+        `gatsby-plugin-offline`,
     ],
 };

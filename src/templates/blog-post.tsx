@@ -40,7 +40,11 @@ const BlogPost: React.FC<PageProps<Query, pageContextProps>> = ({
         <Layout>
             {frontmatter && (
                 <>
-                    <SEO title={frontmatter.title!} />
+                    <SEO
+                        title={frontmatter.title!}
+                        description={frontmatter.description!}
+                        image={frontmatter.image!}
+                    />
                     <S.PostHeader>
                         <S.PostDate>
                             {frontmatter.date} * {timeToRead} min de leitura
@@ -73,6 +77,9 @@ export const query = graphql`
                 title
                 description
                 date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+                image {
+                    relativePath
+                }
             }
             html
             timeToRead

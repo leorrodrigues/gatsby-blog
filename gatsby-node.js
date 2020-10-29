@@ -45,6 +45,9 @@ exports.createPages = async ({ graphql, actions }) => {
                                 )
                                 description
                                 title
+                                image {
+                                    relativePath
+                                }
                             }
                             timeToRead
                         }
