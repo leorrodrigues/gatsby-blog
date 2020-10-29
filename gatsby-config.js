@@ -8,7 +8,7 @@ module.exports = {
         position: `Backend Developer`,
         description: `A blog about frontend development and other cool stuff`,
         author: `@myblog`,
-        siteUrl: `https://johndoe.com.br`,
+        siteUrl: `https://dev-lrr-blog.netlify.app/`,
     },
     plugins: [
         `gatsby-plugin-transition-link`,
@@ -30,6 +30,7 @@ module.exports = {
             },
         },
         `gatsby-transformer-sharp`,
+        `gatsby-plugin-netlify-cms`,
         `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-plugin-algolia-search`,
@@ -45,8 +46,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `John Doe`,
-                short_name: `John Doe`,
+                name: `Leonardo Rosa Rodrigues`,
+                short_name: `Leonardo R. R.`,
                 start_url: `/`,
                 background_color: `#16202c`,
                 display: `minimal-ui`,

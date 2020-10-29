@@ -9,7 +9,7 @@ interface CommentsProps {
 }
 
 const Comments: React.FC<CommentsProps> = ({ url, title }) => {
-    const completeURL = `https://willianjustem.com.br${url}`;
+    const completeURL = `https://dev-lrr-blog.netlify.app/${url}`;
 
     return (
         <S.CommentsWrapper>
